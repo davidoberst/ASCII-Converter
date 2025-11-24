@@ -22,17 +22,23 @@ def proccessIMG():
  time.sleep(1) ; print(Fore.CYAN + f"Converting {imgName}..." + Style.RESET_ALL)
 
  opencvIMG = cv2.imread(path,cv2.IMREAD_GRAYSCALE) #Read IMG and convert IMG into a GREYSCALE
- print(opencvIMG)
- for f in opencvIMG: #f = file , p = pixel
-   f2,c2 = opencvIMG.shape #f2 = file2 , c2 = columns
-   opencvIMG2 = np.empty((f2,c2),dtype=str)
-   for p in f:
+
+ f2,c2 = opencvIMG.shape #f2 = file2 , c2 = columns
+
+ opencvIMG2 = np.empty((f2,c2),dtype=str)
+
+ for i, f in enumerate(opencvIMG): #f = file , p = pixel
+   for j, p in enumerate(f): # p = pixel , f = file 
     intensity = p  
     if(intensity < 128):
-     intensity = 1
+      opencvIMG2[i][j] = "1"
+     
     elif(intensity >= 128):
-     intensity = 0 
- print(opencvIMG.shape)
+     opencvIMG2[i][j] = "0"                             
+                                                                                                                                                                                                                                                                                                                      
+ print(opencvIMG2)
+
+
      
 
    
