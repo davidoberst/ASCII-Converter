@@ -17,8 +17,8 @@ def proccessIMG():
  time.sleep(1)
  imgName = os.path.basename(path) #IMG NAME
  time.sleep(1) ; print(Fore.CYAN + f"Converting {imgName}..." + Style.RESET_ALL)
- time.sleep(15)
- cv2.imread(path)
+ time.sleep(2); opencvIMG = cv2.imread(path,cv2.IMREAD_GRAYSCALE) #Read IMG and convert IMG into a GREYSCALE
+ print(opencvIMG)
  
 
 
