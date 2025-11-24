@@ -1,9 +1,11 @@
+
 import pyfiglet
 from colorama import Fore,Style
 import time
 import cv2
 import os
 #------------------BANNER--------------------
+
 print(Fore.RED + pyfiglet.figlet_format("ASCII Converter", font="small").rstrip() + Style.RESET_ALL)
 time.sleep(0.5)
 print("")
@@ -17,9 +19,21 @@ def proccessIMG():
  time.sleep(1)
  imgName = os.path.basename(path) #IMG NAME
  time.sleep(1) ; print(Fore.CYAN + f"Converting {imgName}..." + Style.RESET_ALL)
- time.sleep(2); opencvIMG = cv2.imread(path,cv2.IMREAD_GRAYSCALE) #Read IMG and convert IMG into a GREYSCALE
+
+ opencvIMG = cv2.imread(path,cv2.IMREAD_GRAYSCALE) #Read IMG and convert IMG into a GREYSCALE
  print(opencvIMG)
+
+ for f in opencvIMG: #f = file , p = pixel
+   for p in f:
+    intensity = p  
+    print(intensity)
+   
+  
  
+  
+
+ 
+
 
 
 proccessIMG()
