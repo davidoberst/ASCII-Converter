@@ -3,6 +3,7 @@ import pyfiglet
 from colorama import Fore,Style
 import time
 import cv2
+import numpy as np
 import os
 #------------------BANNER--------------------
 
@@ -22,11 +23,18 @@ def proccessIMG():
 
  opencvIMG = cv2.imread(path,cv2.IMREAD_GRAYSCALE) #Read IMG and convert IMG into a GREYSCALE
  print(opencvIMG)
-
  for f in opencvIMG: #f = file , p = pixel
+   f2,c2 = opencvIMG.shape #f2 = file2 , c2 = columns
+   opencvIMG2 = np.empty((f2,c2),dtype=str)
    for p in f:
     intensity = p  
-    print(intensity)
+    if(intensity < 128):
+     intensity = 1
+    elif(intensity >= 128):
+     intensity = 0 
+ print(opencvIMG.shape)
+     
+
    
   
  
